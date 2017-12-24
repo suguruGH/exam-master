@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :session_login, only: [:new, :edit, :show]
   def index   #indexアクションの作成
     @blogs = Blog.all
     render 'index'
@@ -59,6 +60,12 @@ class BlogsController < ApplicationController
   
   def set_blog
     @blog = Blog.find(params[:id])
+  end
+  
+  def session_login
+    if session[:user_id] == nil
+      redirect_to new_user_path
+    end
   end
   
 end
