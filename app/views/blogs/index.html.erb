@@ -39,10 +39,14 @@
   <tr>
     <td><%= blog.title %></td>
     <td><%= blog.content %></td>
-    
+
+    <% if current_user.id == blog.user_id %>
     <td><%= link_to 'Show', blog, class: 'btn btn-default' %></td>
     <td><%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-info' %></td>
     <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+    <% else %>
+    <td><%= link_to 'Show', blog, class: 'btn btn-default' %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
