@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get 'sessions/new'
 
-#   get 'blogs/index'
+#   get 'blogs/index' 
+    root :to => 'blogs#index'
 
     resources :blogs do
         collection do
