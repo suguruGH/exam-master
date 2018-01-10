@@ -32,7 +32,7 @@ class BlogsController < ApplicationController
   
    if @blog.save
      BlogMailer.blog_mail(@blog).deliver  ##追記
-    redirect_to blogs_path
+    redirect_to blogs_path, notice: "Blog was successfully"
    else
     render 'new'
    end
