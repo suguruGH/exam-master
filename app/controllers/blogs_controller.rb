@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
   def index   #indexアクションの作成
     @blogs = Blog.all
     # binding.pry
-    render 'index'
+    # render 'index'
   end
   
   def new
@@ -29,11 +29,14 @@ class BlogsController < ApplicationController
   puts "--------------debug"
   puts @blog.user_id
   # @blog = current_user.blogs.build(blog_params)
+  
    if @blog.save
-     redirect_to blogs_path, notice: "ブログを作成しました！"
+     BlogMailer.blog_mail(@blog).deliver  ##追記
+    redirect_to blogs_path
    else
-     render 'new'
+    render 'new'
    end
+  end
   end
   
   def show  #詳細ページ表示
@@ -75,6 +78,3 @@ class BlogsController < ApplicationController
       redirect_to new_user_path
     end
   end
-  
-end
-

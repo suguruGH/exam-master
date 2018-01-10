@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     
     def show
       @user = User.find(params[:id])
+      @favorites_blogs = @user.favorite_blogs  #favorite_blogsはアソシエーション名
     end
 
   private
