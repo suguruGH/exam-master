@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
 #   get 'blogs/index' 
-    # root 'blogs#index'
+    root 'blogs#index'
 
 
     resources :blogs do
