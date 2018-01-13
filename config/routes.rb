@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-    root 'blogs#index'
+    root 'blogs#new'
   resources :contacts
   get 'sessions/new'
 
 #   get 'blogs/index' 
-    root 'blogs#index'
 
 
     resources :blogs do
