@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   resources :contacts
   get 'sessions/new'
 
-#   get 'blogs/index' 
-
-
     resources :blogs do
         collection do
             post :confirm

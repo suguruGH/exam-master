@@ -26,9 +26,9 @@ class BlogsController < ApplicationController
   def create  #createアクションの作成
    @blog = Blog.new(blog_params)
    @blog.user_id = current_user.id #現在ログインしているuserのidをblogのuser_idカラムに挿入する。
-  puts "--------------debug"
-  puts @blog.user_id
-  # @blog = current_user.blogs.build(blog_params)
+   puts "--------------debug"
+   puts @blog.user_id
+   # @blog = current_user.blogs.build(blog_params)
   
    if @blog.save
      BlogMailer.blog_mail(@blog).deliver  ##追記
@@ -36,7 +36,6 @@ class BlogsController < ApplicationController
    else
     render 'new'
    end
-  end
   end
   
   def show  #詳細ページ表示
@@ -50,9 +49,9 @@ class BlogsController < ApplicationController
   end
   
   def update  #更新
-    # @blog = Blog.find(params[:id])
+    @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
-      redirect_to blogs_path,notice:"ブログを編集しました！"
+      redirect_to blogs_path, notice:"ブログを編集しました！"
     else
       render 'edit'
     end
@@ -78,3 +77,4 @@ class BlogsController < ApplicationController
       redirect_to new_user_path
     end
   end
+end
