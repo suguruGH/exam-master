@@ -39,11 +39,13 @@
   <tr>
     <td><%= blog.title %></td>
     <td><%= blog.content %></td>
-    <td>
+    
+    <td class = "img-td">
       <strong>Image:</strong>
       <%= image_tag(blog.image) %>
     </td>
-    <td>
+    
+    <td class = "img-td">
       <strong>投稿者:</strong>
       <%= image_tag(blog.user.image) %>
     </td>
