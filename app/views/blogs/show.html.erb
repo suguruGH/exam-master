@@ -1,6 +1,19 @@
 <h1>投稿確認</h1>
+    <p>
+      <strong>Image:</strong>
+      <%= image_tag(@blog.user.image) %>
+    </p>
 <p>タイトル: <%= @blog.title %></p>
 <p>内容: <%= @blog.content %></p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @blog.image %>
+</p>
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
 <%= link_to '新しくブログを投稿する', new_blog_path %>
 <%= link_to '一覧に戻る', blogs_path %>
 

@@ -27,18 +27,27 @@
 </nav>
     <h1>Listing Blogs</h1>
 
-<p><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <table>
   <tr>
     <th>タイトル</th>
     <th>内容</th>
+    
   </tr>
-
 <% @blogs.each do |blog| %>
   <tr>
     <td><%= blog.title %></td>
     <td><%= blog.content %></td>
+    <td>
+      <strong>Image:</strong>
+      <%= image_tag(blog.image) %>
+    </td>
+    <td>
+      <strong>投稿者:</strong>
+      <%= image_tag(blog.user.image) %>
+    </td>
+    
     <% if current_user.id == blog.user_id %>
     <td><%= link_to 'Show', blog, class: 'btn btn-default' %></td>
     <td><%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-info' %></td>

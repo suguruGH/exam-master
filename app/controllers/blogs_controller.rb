@@ -24,7 +24,7 @@ class BlogsController < ApplicationController
   end
   
   def create  #createアクションの作成
-   @blog = Blog.new(blog_params)
+  @blog = Blog.new(blog_params)
    @blog.user_id = current_user.id #現在ログインしているuserのidをblogのuser_idカラムに挿入する。
    puts "--------------debug"
    puts @blog.user_id
@@ -65,7 +65,7 @@ class BlogsController < ApplicationController
   private        #StrongParametersの意味
   
   def blog_params 
-    params.require(:blog).permit(:title, :content) #permitの中身だけを反映させる
+    params.require(:blog).permit(:title, :content, :image) #permitの中身だけを反映させる
   end
   
   def set_blog

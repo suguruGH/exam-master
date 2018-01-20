@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :feeds
     root 'blogs#new'
   resources :contacts
   get 'sessions/new'
